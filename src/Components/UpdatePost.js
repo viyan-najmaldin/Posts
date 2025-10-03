@@ -9,7 +9,7 @@ const UpdatePost = () =>{
   const navigate = useNavigate();
   const {id} = useParams();
   const { posts,setPosts,  editTitle, setEditTitle,  editBody,  setEditBody}= useContext(DataContext)
-  const onePost = posts.find((postt)=>postt.id ==(id))
+  const onePost = posts.find((postt)=> String(postt.id) === (id))
 
  useEffect(() => {
     if (onePost) {

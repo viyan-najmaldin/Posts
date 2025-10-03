@@ -8,7 +8,7 @@ const PostPage = () => {
   const {posts, setPosts } = useContext(DataContext)
   const {id} = useParams();
   const navigate = useNavigate();
-  const onePost = posts.find((postt)=>postt.id ==id)
+  const onePost = posts.find((postt)=>  String(postt.id)=== (id))
  
   const handleDelete = async (id) => {
       try{ 
