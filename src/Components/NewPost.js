@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import DataContext from '../context/DataContext';
-// import api from '../api/posts'
 import { useNavigate } from 'react-router-dom';
+import { format } from 'date-fns';
+
 
 
 
@@ -12,17 +13,18 @@ const NewPost = () => {
 
   const handleClickAdd = async (e)=>{
       e.preventDefault();
-      const postList = {  title: postTitle,   body: postBody }
-      // try{
-        // const res = await api.post("/posts" , postList)
-      setPosts([...posts, postList])
+      const datetimee = format(new Date(),  'yyyy-MM-dd HH:mm')
+
+      const postList = {  title: postTitle,   body: postBody,datetime: datetimee }
+    setPosts([...posts, postList])
     console.log(posts)
-    navigate(`/`)
+    
+    const updatedPosts = [...posts, postList];
+setPosts(updatedPosts);
+localStorage.setItem('post', JSON.stringify(updatedPosts));
     setPostTitle("")
     setPostBody("")
-      // } catch(err){
-        // console.log(err.message)
-      // }
+    navigate(`/`)
     }
 
 

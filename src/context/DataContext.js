@@ -31,21 +31,20 @@ useEffect(()=>{
   //     console.log(err.message)
   //   }
   // }
-
-      const fetchPosts = async () => {
-      try {
-        const res = await fetch('/data/db.json'); // path inside public folder
-        const data = await res.json();
-        setPosts(data.posts); // assuming your JSON has a "posts" array
-      } catch (err) {
-        console.log(err.message);
-      }
-    };
-fetchPosts()
+  
+  const savedPosts = JSON.parse(localStorage.getItem('post'));
+  if (savedPosts) {
+    setPosts(savedPosts);
+  } else {
+    fetch('/data/db.json')
+      .then(res => res.json())
+      .then(data => setPosts(data.posts));
+  }
 },[])
 
 
 useEffect(()=>{
+  console.log(posts)
    const resultPost = posts.filter((post) =>
       ((post.body).toLowerCase()).includes(search.toLowerCase())
       || ((post.title).toLowerCase()).includes(search.toLowerCase()));

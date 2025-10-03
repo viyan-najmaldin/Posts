@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { useEffect ,useContext } from 'react';
 import DataContext from '../context/DataContext';
+// import { format } from 'date-fns';
 // import api from '../api/posts'
 
 
@@ -27,15 +28,17 @@ const UpdatePost = () =>{
   //  // setPosts([...posts, res.data])
   //  setPosts(posts.map(post => post.id === id ? {...res.data} : post));
   // console.log(posts)
-  // navigate(`/`)
   //  } catch(err){
   //    console.log(err.message)
   //  }
 // }
   const handleClickEdit = (id) => {
-  const updatedPost = { title: editTitle, body: editBody, id: id };
-  setPosts(posts.map(post => post.id === id ? updatedPost : post));
-  navigate(`/`);
+const updatedPost = { ...onePost, title: editTitle, body: editBody };
+  const newPosts = posts.map(p => p.id === onePost.id ? updatedPost : p);
+  setPosts(newPosts);
+  localStorage.setItem('post', JSON.stringify(newPosts));
+  navigate(`/`)
+
 };
  
 
