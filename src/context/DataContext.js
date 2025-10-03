@@ -1,5 +1,7 @@
 import { createContext,useState ,useEffect } from "react";
-import api from '../api/posts'
+// import api from '../api/posts'
+
+
 
 
 
@@ -19,17 +21,27 @@ const [search, setSearch] = useState('');
 
 
 useEffect(()=>{
+//  setPosts(postsData.posts)
+  // const feachAPI = async ()=>{
+  //   try{
+  //   const res = await api.get("/posts")
+  //   setPosts(res.data)
+  //   }
+  //   catch(err){
+  //     console.log(err.message)
+  //   }
+  // }
 
-  const feachAPI = async ()=>{
-    try{
-    const res = await api.get("/posts")
-    setPosts(res.data)
-    }
-    catch(err){
-      console.log(err.message)
-    }
-  }
-feachAPI()
+      const fetchPosts = async () => {
+      try {
+        const res = await fetch('/data/db.json'); // path inside public folder
+        const data = await res.json();
+        setPosts(data.posts); // assuming your JSON has a "posts" array
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+fetchPosts()
 },[])
 
 

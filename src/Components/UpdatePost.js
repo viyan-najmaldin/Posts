@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { useEffect ,useContext } from 'react';
 import DataContext from '../context/DataContext';
-import api from '../api/posts'
+// import api from '../api/posts'
 
 
 const UpdatePost = () =>{
@@ -18,20 +18,26 @@ const UpdatePost = () =>{
     }
  }, [onePost, setEditTitle, setEditBody]);
   
-   const handleClickEdit = async (id)=>{
+  //  const handleClickEdit = async (id)=>{
    // e.preventDefault();
-   console.log("viiii")
-   const updateOne = {  title: editTitle,  body: editBody }
-   try{
-     const res = await api.put(`/posts/${id}`,  updateOne)
-   // setPosts([...posts, res.data])
-   setPosts(posts.map(post => post.id === id ? {...res.data} : post));
-  console.log(posts)
-  navigate(`/`)
-   } catch(err){
-     console.log(err.message)
-   }
- }
+  //  console.log("viiii")
+  //  const updateOne = {  title: editTitle,  body: editBody }
+  //  try{
+  //    const res = await api.put(`/posts/${id}`,  updateOne)
+  //  // setPosts([...posts, res.data])
+  //  setPosts(posts.map(post => post.id === id ? {...res.data} : post));
+  // console.log(posts)
+  // navigate(`/`)
+  //  } catch(err){
+  //    console.log(err.message)
+  //  }
+// }
+  const handleClickEdit = (id) => {
+  const updatedPost = { title: editTitle, body: editBody, id: id };
+  setPosts(posts.map(post => post.id === id ? updatedPost : post));
+  navigate(`/`);
+};
+ 
 
 
   return (

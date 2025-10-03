@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import DataContext from '../context/DataContext';
-import api from '../api/posts'
+// import api from '../api/posts'
 import { useNavigate } from 'react-router-dom';
 
 
@@ -13,16 +13,16 @@ const NewPost = () => {
   const handleClickAdd = async (e)=>{
       e.preventDefault();
       const postList = {  title: postTitle,   body: postBody }
-      try{
-        const res = await api.post("/posts" , postList)
-      setPosts([...posts, res.data])
+      // try{
+        // const res = await api.post("/posts" , postList)
+      setPosts([...posts, postList])
     console.log(posts)
     navigate(`/`)
     setPostTitle("")
     setPostBody("")
-      } catch(err){
-        console.log(err.message)
-      }
+      // } catch(err){
+        // console.log(err.message)
+      // }
     }
 
 
