@@ -36,7 +36,7 @@ const PostPage = () => {
  
   return (
     <div className='onepost'>
-        <h3> Title : {onePost.title} ID {onePost.id} </h3>
+        <h3> Title : {onePost.title}  </h3>
         <p className='datee'>{onePost.datetime}</p>
         <p> {onePost.body  }</p>
   <button className='btns' onClick={()=>handleDelete(onePost.id)}>Delete Post</button>

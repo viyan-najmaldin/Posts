@@ -15,7 +15,7 @@ const NewPost = () => {
   const handleClickAdd = async (e)=>{
       e.preventDefault();
       const datetimee = format(new Date(),  'yyyy-MM-dd HH:mm')
-     const id = ((posts[posts.length-1].id)+1);
+     const id = (posts.length? (posts[posts.length-1].id)+1 :1);
      
       const postList = {id, title: postTitle,   body: postBody,datetime: datetimee }
     console.log(posts)
