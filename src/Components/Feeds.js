@@ -16,7 +16,7 @@ const Feeds = ({posts}) => {
     ) 
      : <p>No Post</p>}
 
-    {console.log(posts)} 
+    {/* {console.log(posts)}  */}
     
     </>
   )

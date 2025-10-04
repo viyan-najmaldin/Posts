@@ -44,7 +44,7 @@ useEffect(()=>{
 
 
 useEffect(()=>{
-  console.log(posts)
+  // console.log(posts)
    const resultPost = posts.filter((post) =>
       ((post.body).toLowerCase()).includes(search.toLowerCase())
       || ((post.title).toLowerCase()).includes(search.toLowerCase()));

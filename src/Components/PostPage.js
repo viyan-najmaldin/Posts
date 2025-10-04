@@ -9,19 +9,20 @@ const PostPage = () => {
   const {id} = useParams();
   const navigate = useNavigate();
   const onePost = posts.find((postt)=>  String(postt.id)=== (id))
- 
+      // const idd = (id)+1
+    //  console.log("the is isss : "+idd)
+
   const handleDelete = async (id) => {
       // try{ 
-        console.log("Deleting post id:",id)
+        // console.log("Deleting post id:",id)
       // await api.delete(`/posts/${id}`)
-      const postsList = posts.filter(post => post.id !== id);
-    setPosts(postsList);
-      localStorage.setItem('post', JSON.stringify(postsList));
-    
-      // localStorage.setItem('postsz', JSON.stringify(postsList));
+      const postsListDelete = posts.filter(post => post.id !== id);
+    console.log(postsListDelete)
 
+    setPosts(postsListDelete);
+      localStorage.setItem('post', JSON.stringify(postsListDelete)); 
+     
        navigate(`/`)
-
       // } catch(err){
     //  console.log(`Error: ${err.message}`);
       // }
@@ -35,7 +36,7 @@ const PostPage = () => {
  
   return (
     <div className='onepost'>
-        <h3> Title : {onePost.title} </h3>
+        <h3> Title : {onePost.title} ID {onePost.id} </h3>
         <p className='datee'>{onePost.datetime}</p>
         <p> {onePost.body  }</p>
   <button className='btns' onClick={()=>handleDelete(onePost.id)}>Delete Post</button>

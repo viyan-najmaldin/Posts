@@ -10,13 +10,14 @@ const NewPost = () => {
 
   const   { postTitle, setPostTitle,posts,setPosts,  postBody,  setPostBody} = useContext(DataContext)
   const navigate = useNavigate();
-
+      // console.log((posts[posts.length-1].id)+1)
+ 
   const handleClickAdd = async (e)=>{
       e.preventDefault();
       const datetimee = format(new Date(),  'yyyy-MM-dd HH:mm')
-
-      const postList = {  title: postTitle,   body: postBody,datetime: datetimee }
-    setPosts([...posts, postList])
+     const id = ((posts[posts.length-1].id)+1);
+     
+      const postList = {id, title: postTitle,   body: postBody,datetime: datetimee }
     console.log(posts)
     
     const updatedPosts = [...posts, postList];

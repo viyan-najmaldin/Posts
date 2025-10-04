@@ -1,31 +1,24 @@
 {
   "posts": [
     {
-      "id": "4c05",
+      "id": "1",
       "title": "First Post",
       "body": "let's try from the start",
             "datetime": "2025-10-04 19:10"
 
     },
     {
-      "title": "Viyan",
-      "body": "Hello Viyan Nagmadin this post is for you\n",
-      "id": "9dc9",
+      "title": "Greeting",
+      "body": "Hello Dear Welcome here this post is for you\n",
+      "id": "2",
       "datetime": "2025-10-04 19:20"
 
     },
     {
-      "id": "70a3",
+      "id": "3",
       "title": "Hello World",
-      "body": "this is the enddd",
+      "body": "this is the end hold your breath and count to 10",
       "datetime": "2025-10-04 19:34"
-
-    },
-    {
-      "id": "ed70",
-      "title": "Hello",
-      "body": "hello viyan baxerbey",
-      "datetime": "2025-10-04 19:40"
 
     }
   ]
